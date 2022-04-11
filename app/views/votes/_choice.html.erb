@@ -1,0 +1,6 @@
+<%= error_messages_for 'choice' %>
+<div class="box tabular">
+    <p><%= f.text_area :question, :value => @vote.question, :cols => 60, :rows => 2, :disabled => true %></p>
+    <%= f.hidden_field(:vote_id, :value => @vote.id) if @vote %>
+    <p><%= f.text_field(:text, :required => true, :size => 60) %></p>
+</div>

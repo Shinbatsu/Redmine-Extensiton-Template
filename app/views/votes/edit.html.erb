@@ -1,0 +1,9 @@
+<div id="edit-news">
+    <h2><%=l(:vote_edit)%></h2>
+    <% labelled_tabular_form_for :vote, @vote, :url => {:action => 'edit', :id => @vote,:project_id => @project},
+                                 :html => { :id => 'votes-form' } do |f| %>
+        <%= render :partial => 'form', :locals => { :f => f } %>
+        <%= submit_tag l(:button_update) %>
+    <% end %>
+    <%= link_to l(:button_cancel), { :action => 'index', :project_id => @project} %>
+</div>

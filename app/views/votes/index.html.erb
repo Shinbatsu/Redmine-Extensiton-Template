@@ -1,0 +1,46 @@
+<h2><%= l(:votes) %></h2>
+
+
+<div class="contextual">
+    <%= link_to(l(:button_create),
+                {:controller => 'votes', :action => 'new', :project_id => @project},
+                :class => 'icon icon-add') %>
+</div>
+
+<% @votes.each do |vote| %>
+    <div>
+        <% choices = vote.choices %>
+        <table class="list" style="width:60%">
+            <tr>
+                <th class="vote_head"><%= vote.id.to_s + '. ' +vote.question %></th>
+                <th style="width:5%;"></th>
+                <th class="buttons" align="right">
+                    <%= link_to '', { :action => 'edit', :id => vote, :project_id => @project },
+                                :class => 'icon icon-edit',:title => l(:vote_edit) %>
+                    <%= link_to '', { :action => 'delete', :id => vote, :project_id => @project},
+                                :method => :post,
+                                :confirm => l(:text_are_you_sure),
+                                :class => 'icon icon-del',:title => l(:vote_remove) %>
+                </th>
+            </tr>
+            <% choices.each do |choice| %>
+                <tr class="<%= cycle('odd', 'even') %>">
+                    <td><%= link_to choice.text, :action => 'edit_choice', :id => choice, :vote_id => vote,:project_id=>@project %></td>
+                    <td align="center"><%=choice.votes.size.to_s%> </td>
+                    <td  class="buttons">
+                        <%= link_to '', { :action => 'remove_choice', :id => choice,:project_id => @project},
+                                    :method => :post,
+                                    :confirm => l(:text_are_you_sure),
+                                    :class => 'icon icon-del',:title => l(:choice_remove) %>
+                    </td>
+                </tr>
+            <% end %>
+            <tr>
+                <td colspan="3" align="left"><%= link_to l(:choice_add),
+                                                         { :action => 'new_choice', :vote_id => vote , :project_id => @project},
+                                                         :class => 'icon icon-add' %></td>
+            </tr>
+        </table>
+        <% reset_cycle %>
+    </div>
+<% end if @votes%>
