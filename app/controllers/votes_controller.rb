@@ -1,4 +1,4 @@
-class PollsController < ApplicationController
+class VotesController < ApplicationController
   unloadable
 
   before_filter :find_project, :authorize
@@ -62,7 +62,7 @@ class PollsController < ApplicationController
   end
 
   def reset_vote
-    vote = VotingPoll.find(params[:vote_id])
+    vote = VotingVote.find(params[:vote_id])
     if vote.revote
       vote = VotingVote.find_by(user_id: User.current.id, vote_id: vote.id)
       vote&.destroy
