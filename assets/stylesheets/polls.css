@@ -1,0 +1,23 @@
+div.votes h3 {
+    background: url(../../../images/true.png) no-repeat left center;
+    padding-left: 20px;
+    margin: 0; 
+  }
+  
+  tr.vote_result td {
+    text-align: center;
+  }
+  
+  tr.vote td {
+    vertical-align: middle;
+  }
+  
+  td.vote_choice {
+    text-align: left;
+  }
+  
+  td.vote_users {
+    text-align: left;
+    width: 30%;
+  }
+  
