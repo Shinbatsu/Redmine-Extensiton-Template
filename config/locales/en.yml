@@ -1,0 +1,16 @@
+# English strings go here for Rails i18n
+en:
+  votes: Votes
+  vote_new: New vote
+  choice_new: New choice
+  choice_add: Add choice
+  field_question: Question
+  field_revote: Revote ability
+  field_text: Choice
+  vote_edit: Edit vote
+  choice_edit: Edit choice
+  revote: Revote
+  vote_remove: Remove vote
+  vote_edit: Edit vote
+  vote_remove: Remove vote
+  choice_remove: Remove choice
